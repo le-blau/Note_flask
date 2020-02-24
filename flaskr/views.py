@@ -17,3 +17,11 @@ def add_entry():
     db.session.commit()
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
+
+@app.route('/delete', methods=['POST'])
+def delete_entry():
+    # テーブル内すべて削除
+    db.session.query(Entry).delete()
+    db.session.commit()
+    flash('All deleted')
+    return redirect(url_for('show_entries'))
