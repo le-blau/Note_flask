@@ -25,3 +25,14 @@ def delete_entry():
     db.session.commit()
     flash('All deleted')
     return redirect(url_for('show_entries'))
+
+@app.route('/delete_one_entry/<int:entry>')
+def delete_one_entry(entry):
+    # 一件削除
+    print('delete one entry')
+    post = Entry.query.get(entry)
+    print(post)
+    db.session.delete(post)
+    db.session.commit()
+    flash('Deleted one entry')
+    return redirect(url_for('show_entries'))
