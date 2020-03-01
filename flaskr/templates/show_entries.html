@@ -20,7 +20,7 @@
   <ul class=entries>
   {% for entry in entries %}
     <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}
-    <a href="/delete_one_entry/{{ entry.id }}" class="btn">delete_one_entry</a>
+    <input type="button" onclick="location.href='/delete_one_entry/{{ entry.id }}'"value="削除">
   {% else %}
     <li><em>Unbelievable.  No entries here so far</em>
   {% endfor %}
